@@ -22,21 +22,9 @@ private String QQAppKEY;
 @Value("${redirect_uri}")
 private String redirect_uri;
 
-
-
-/*
-处理redirect_uri里面特殊字符转义
- */
-private String reCodeUrl(String url){
-     String enCodeUrl1=url.replace(':','%');
-     String enCodeUrl2=enCodeUrl1.replace('/','%');
-     return enCodeUrl2;
-   }
-
    /*
    第一步：获取 QQ登录按钮url 几乎等于手动拼接 无太大意义
     */
-
     public String getUrl(){
         String url = "https://graph.qq.com/oauth2.0/authorize?display=pc&response_type=code&client_id=" + QQAppID+"&redirect_uri="+redirect_uri+"&state=200";
                 System.out.println("第一步：获取QQ登录按钮的url="+url);
